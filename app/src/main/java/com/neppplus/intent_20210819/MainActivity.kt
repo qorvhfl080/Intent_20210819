@@ -1,5 +1,6 @@
 package com.neppplus.intent_20210819
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,4 +43,21 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQ_FOR_NICKNAME) {
+
+            if (resultCode == Activity.RESULT_OK) {
+//                닉네임을 가지러 가서 확인까지 한 상황
+//                첨부된 닉네임이 있을 것이다.
+                val newNickname = data?.getStringExtra("nick")
+
+                nicknameTxt.text = newNickname
+            }
+
+        }
+    }
+
 }
