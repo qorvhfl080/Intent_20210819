@@ -19,5 +19,16 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        sendMessageBtn.setOnClickListener {
+//            전달 할 내용을 변수에 담기
+            val inputMessage = messageEdt.text.toString()
+
+//            저장한 변수를 들고 메세지 화면으로 이동
+            val myIntent = Intent(this, ViewMessageActivity::class.java)
+            myIntent.putExtra("message", inputMessage)
+            startActivity(myIntent)
+
+        }
+
     }
 }
