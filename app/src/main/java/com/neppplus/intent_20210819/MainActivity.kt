@@ -2,6 +2,7 @@ package com.neppplus.intent_20210819
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,6 +40,24 @@ class MainActivity : AppCompatActivity() {
 
             val nicknameIntent = Intent(this, EditNicknameActivity::class.java)
             startActivityForResult(nicknameIntent, REQ_FOR_NICKNAME)
+
+        }
+
+        dialBtn.setOnClickListener {
+
+//            입력한 전화번호를 변수로 저장
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+//            그 번호로 전화 연결
+
+//            1. 어디로 전화 걸지 정보 완성
+            val myURi = Uri.parse("tel:${inputPhoneNum}")
+
+//            2. 완성된 정보로 전화 거는 Intent
+            val myIntent = Intent(Intent.ACTION_DIAL, myURi)
+
+//            3. 실제로 Intent 실행
+            startActivity(myIntent)
 
         }
 
