@@ -51,12 +51,24 @@ class MainActivity : AppCompatActivity() {
 //            그 번호로 전화 연결
 
 //            1. 어디로 전화 걸지 정보 완성
-            val myURi = Uri.parse("tel:${inputPhoneNum}")
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
 
 //            2. 완성된 정보로 전화 거는 Intent
-            val myIntent = Intent(Intent.ACTION_DIAL, myURi)
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
 
 //            3. 실제로 Intent 실행
+            startActivity(myIntent)
+
+        }
+
+        callBtn.setOnClickListener {
+
+            val phoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("tel:${phoneNum}")
+
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+
             startActivity(myIntent)
 
         }
