@@ -86,6 +86,16 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        naverBtn.setOnClickListener {
+
+            val myUri = Uri.parse("https://www.naver.com")
+
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+
+            startActivity(myIntent)
+
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
